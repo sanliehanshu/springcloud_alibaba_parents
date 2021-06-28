@@ -12,6 +12,9 @@
         <module>springcloud_alibaba_users</module>
         <module>springcloud_alibaba_products</module>
         <module>springcloud_alibaba_gateway</module>
+        <module>springcloud_alibaba_users</module>
+        <module>springcloud_alibaba_products</module>
+        <module>springcloud_alibaba_gateway</module>
     </modules>
 
     <parent>
