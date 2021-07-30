@@ -9,10 +9,10 @@ spring:
         - id: user_route
           uri: lb://USERS
           predicates:
-            - Path=/user
+            - Path=/user/**
         - id: product_route
           uri: lb://PRODUCTIONS
           predicates:
-            - Path=/products
+            - Path=/products/**
   application:
     name: GATEWAY

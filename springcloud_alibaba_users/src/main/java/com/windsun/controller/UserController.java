@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -19,6 +20,7 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 @RefreshScope
+@RequestMapping("/user")
 public class UserController {
 
     @Value("${windsun}")
@@ -27,10 +29,18 @@ public class UserController {
     @Resource
     private ProductsClient productsClient;
 
-    @GetMapping("/user")
-    public String user(){
+    @GetMapping("/testNum")
+    public String testNum(){
         log.info("user name：{}",name);
-        String result = productsClient.products();
+        String result = productsClient.testNum();
+        log.info("openfeign 调用结果："+result);
+        return "user,ok!!,"+name+" ,openfeign 调用结果："+result;
+    }
+
+    @GetMapping("/testName")
+    public String testName(){
+        log.info("user name：{}",name);
+        String result = productsClient.testName();
         log.info("openfeign 调用结果："+result);
         return "user,ok!!,"+name+" ,openfeign 调用结果："+result;
     }

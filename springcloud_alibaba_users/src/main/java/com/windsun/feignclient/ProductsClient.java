@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("PRODUCTIONS")
 public interface ProductsClient {
 
-    @GetMapping("/products")
-    public String products();
+    @GetMapping("/products/testNum")
+    String testNum();
+
+    @GetMapping("/products/testName")
+    String testName();
 }
